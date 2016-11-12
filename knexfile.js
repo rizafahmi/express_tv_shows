@@ -19,10 +19,10 @@ module.exports = {
     }
   },
 
-  staging: {
+  test: {
     client: 'pg',
     connection: {
-      database: 'postgres',
+      database: 'tv_shows',
       user:     'postgres',
       password: 'postgres'
     },
@@ -35,14 +35,14 @@ module.exports = {
       directory: __dirname + '/db/migrations'
     },
     seed: {
-      directory: __dirname + '/db/seeds/staging'
+      directory: __dirname + '/db/seeds/test'
     }
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: 'my_db',
+      database: 'tv_shows',
       user:     'username',
       password: 'password'
     },
@@ -52,10 +52,10 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: __dirname + '/db/migrations'
+      directory: __dirname + '/db/migrations/'
     },
     seed: {
-      directory: __dirname + '/db/seeds/test'
+      directory: __dirname + '/db/seeds/production'
     }
   }
 
