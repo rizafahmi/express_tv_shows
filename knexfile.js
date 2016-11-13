@@ -8,7 +8,7 @@ module.exports = {
       host: 'localhost',
       user: 'postgres',
       password: 'postgres',
-      database: 'tv_shows'
+      database: 'tv_shows_dev'
     },
     migrations: {
       tableName: 'knex_migrations',
@@ -22,7 +22,7 @@ module.exports = {
   test: {
     client: 'pg',
     connection: {
-      database: 'tv_shows',
+      database: 'tv_shows_test',
       user:     'postgres',
       password: 'postgres'
     },
