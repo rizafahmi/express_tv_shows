@@ -20,8 +20,10 @@ function update(showId, updates) {
   return Shows().where('id', parseInt(showId)).update(updates)
 }
 
+
 module.exports = {
   getAll: getAll,
   getSingle: getSingle,
-  add: add
+  add: add,
+  update: update
 }
