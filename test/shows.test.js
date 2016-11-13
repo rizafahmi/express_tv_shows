@@ -124,6 +124,23 @@ describe('API Routes', () => {
         done()
       })
     })
+    it('should not update a show when we add id inside body', (done) => {
+      chai.request(server)
+        .put('/api/v1/shows/1')
+        .send({
+          id: 20,
+          rating: 4,
+          explicit: true
+        })
+      .end((err, res) => {
+        res.should.have.status(422)
+        res.should.be.json
+        res.body.should.be.a('object')
+        res.body.should.have.property('error')
+        res.body.error.should.equal('You cannot update the id field')
+        done()
+      })
+    })
   })
 
 })
