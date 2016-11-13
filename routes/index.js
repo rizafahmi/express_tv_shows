@@ -26,4 +26,19 @@ router.get('/shows/:id', (req, res, next) => {
     })
 })
 
+
+// *** Add a show *** //
+router.post('/shows/', (req, res, next) => {
+  queries.add(req.body)
+    .then((showId) => {
+      return queries.getSingle(showId)
+    })
+  .then((show) => {
+    res.status(200).json(show)
+  })
+  .catch((error) => {
+    next(error)
+  })
+})
+
 module.exports = router;

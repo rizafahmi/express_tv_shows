@@ -12,7 +12,16 @@ function getSingle(showId) {
   return Shows().where('id', parseInt(showId)).first()
 }
 
+function add(show) {
+  return Shows().insert(show, 'id')
+}
+
+function update(showId, updates) {
+  return Shows().where('id', parseInt(showId)).update(updates)
+}
+
 module.exports = {
   getAll: getAll,
-  getSingle: getSingle
+  getSingle: getSingle,
+  add: add
 }
