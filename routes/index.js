@@ -60,4 +60,20 @@ router.put('/shows/:id', (req, res, next) => {
   })
 })
 
+router.delete('/shows/:id', (req, res, next) => {
+  queries.getSingle(req.params.id)
+    .then((show) => {
+      queries.deleteItem(req.params.id)
+        .then(() => {
+          res.status(200).json(show)
+        })
+        .catch((err) => {
+          next(err)
+        })
+    })
+    .catch((err) => {
+      next(err)
+    })
+})
+
 module.exports = router;

@@ -20,10 +20,15 @@ function update(showId, updates) {
   return Shows().where('id', parseInt(showId)).update(updates)
 }
 
+function deleteItem(showId) {
+  return Shows().where('id', parseInt(showId)).del()
+}
+
 
 module.exports = {
   getAll: getAll,
   getSingle: getSingle,
   add: add,
-  update: update
+  update: update,
+  deleteItem: deleteItem
 }
