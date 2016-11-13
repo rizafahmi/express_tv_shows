@@ -8,6 +8,11 @@ function getAll() {
   return Shows().select()
 }
 
+function getSingle(showId) {
+  return Shows().where('id', parseInt(showId)).first()
+}
+
 module.exports = {
-  getAll: getAll
+  getAll: getAll,
+  getSingle: getSingle
 }

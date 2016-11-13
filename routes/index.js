@@ -4,7 +4,7 @@ const router = express.Router();
 const queries = require('../db/queries.js')
 
 /* GET home page. */
-router.get('/shows', function(req, res, next) {
+router.get('/shows', (req, res, next) => {
   queries.getAll()
     .then((shows) => {
       res.status(200).json(shows)
@@ -13,5 +13,17 @@ router.get('/shows', function(req, res, next) {
       next(error)
     })
 });
+
+
+// *** GET Single show *** //
+router.get('/shows/:id', (req, res, next) => {
+  queries.getSingle(req.params.id)
+    .then((show) => {
+      res.status(200).json(show)
+    })
+    .catch((err) => {
+      next(err)
+    })
+})
 
 module.exports = router;
